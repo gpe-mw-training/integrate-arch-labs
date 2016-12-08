@@ -4,17 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.redhat.gpe.training</groupId>
-    <artifactId>camel</artifactId>
+    <groupId>org.fuse.usecase2</groupId>
+    <artifactId>project</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-    <name>RedHat GPTE Training :: Integration Architecture Workshop :: Lab Code Assets</name>
+    <name>RedHat GPTE :: IAW :: Lab :: 7 :: Camel REST WS</name>
 
     <modules>
-        <module>02_fuse_overview</module>
-        <module>03_camel_EIP</module>
-        <module>04_fuse_deployments</module>
-        <module>07_camel_REST_WS</module>
+        <module>routing</module>
+        <module>features</module>
+        <module>parent</module>
     </modules>
 
 </project>
