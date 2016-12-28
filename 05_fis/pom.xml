@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.redhat.gpe.training</groupId>
+    <artifactId>iaw-lab-5</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+
+    <name>RedHat GPTE :: IAW :: Lab :: 5 :: FIS</name>
+
+    <modules>
+        <module>1_Introduction_to_Fuse_Integration_Services</module>
+        <module>2_Packaging_and_Deployment_Models</module>
+    </modules>
+
+</project>
