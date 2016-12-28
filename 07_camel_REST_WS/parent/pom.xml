@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>project</artifactId>
-        <groupId>org.fuse.usecase2</groupId>
+        <artifactId>iaw-lab-7</artifactId>
+        <groupId>com.redhat.gpe.training</groupId>
         <version>1.0</version>
     </parent>
 

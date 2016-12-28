@@ -2,16 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>com.redhat.gpe.training</groupId>
-        <artifactId>camel</artifactId>
-        <version>1.0</version>
-    </parent>
+    <groupId>com.redhat.gpe.training</groupId>
+    <version>1.0</version>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>iaw-lab-2</artifactId>
     <name>RedHat GPTE :: IAW :: Lab :: 2 :: Fuse Overview</name>
-    <packaging>bundle</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <jboss.fuse.bom.version>6.2.1.redhat-084</jboss.fuse.bom.version>

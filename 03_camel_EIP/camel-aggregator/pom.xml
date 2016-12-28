@@ -3,15 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>camel-lab-6</artifactId>
+        <artifactId>iaw-lab-3</artifactId>
         <groupId>com.redhat.gpe.training</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>camel-aggregator</artifactId>
-    <name>RedHat GPE Training :: Camel :: Lab :: 6 :: Aggregator</name>
-
+    <name>RedHat GPTE :: IAW :: Lab :: 3 :: Camel EIP :: Aggregator</name>
     <packaging>bundle</packaging>
 
     <dependencies>
