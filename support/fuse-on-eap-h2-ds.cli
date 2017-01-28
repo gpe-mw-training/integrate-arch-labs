@@ -1,0 +1,8 @@
+batch
+
+# Defines MyCamelDS datasource using H2 driver
+# H2 database file will be written to: ~/.h2/fuseoneap
+/subsystem=datasources/data-source=MyCamelDS:add(jndi-name=java:jboss/datasources/MyCamelDS,connection-url="jdbc:h2:file:~/h2/fuseoneap;AUTO_SERVER=TRUE",driver-class="org.h2.Driver",driver-name=h2,user-name=sa,pool-name=MyCamelDS,max-pool-size=10,min-pool-size=1,jta=true,set-tx-query-timeout=false,blocking-timeout-millis=0,idle-timeout-minutes=0,query-timeout=0,use-try-lock=0,allocation-retry=0,allocation-retry-wait-millis=0)
+/subsystem=datasources/data-source=MyCamelDS:enable()
+
+run-batch
