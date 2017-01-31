@@ -17,7 +17,7 @@
         <module>05_fis</module>
         <module>06_amq</module>
         <module>07_camel_REST_WS</module>
-        <module>09_fuse_and_othermware</module>
+        <module>08_fuse_and_othermware</module>
     </modules>
 
 </project>
