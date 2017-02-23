@@ -23,9 +23,7 @@
 
     <!-- SQL Component & Datasource -->
     <bean id="sql" class="org.apache.camel.component.sql.SqlComponent">
-      <!-- EXCLUDE-BEGIN -->
         <property name="dataSource" ref="usecaseDB"/>
-      <!-- EXCLUDE-END -->
     </bean>
 
     <cxf:cxfEndpoint id="customerWebService" address="http://localhost:9090/ws/customerService"
@@ -53,7 +51,7 @@
     <bean id="customerRestImplBean" class="org.fuse.usecase.service.CustomerRestImpl"/>
     <bean id="processorBean" class="org.fuse.usecase.ProcessorBean"/>
 
-    <!--  THIS PROVIDER DOESN'T WORK & RETURN ERROR 415 Unsupported Media Type
+    <!--  Caution: THIS PROVIDER DOESN'T WORK & RETURN ERROR 415 Unsupported Media Type
       It can't also handle the Body : No message body reader has been found for
       class CXF_Test.cxf_test.Book, ContentType: application/json
       <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider"/>
@@ -62,7 +60,6 @@
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
         <propertyPlaceholder id="properties" location="fabric8/route.properties"/>
-	<!-- EXCLUDE-BEGIN -->
         <!--
              Transformation Endpoint doing csv2java conversion
              Step 1 : csv record is converted java using camel bindy
@@ -105,10 +102,7 @@
                 <to uri="direct://callRestEndpoint"/>
                 <to uri="direct://callWSEndpoint"/>
             </multicast>
-	    <!--
-            <log loggingLevel="INFO"
-                 message=">> Aggregated result: Account : ${body.clientId}, ${body.salesRepresentative}; Company : ${body.company.name}, ${body.company.geo}, ${body.company.active}; Contact : ${body.contact.firstName}, ${body.contact.lastName}, ${body.contact.streetAddr}, ${body.contact.city}, ${body.contact.state}, ${body.contact.zip}, ${body.contact.phone}"/>
-	    -->
+            <log loggingLevel="INFO" message=">> Aggregated result: Account : ${body.clientId}, ${body.salesRepresentative}; Company : ${body.company.name}, ${body.company.geo}, ${body.company.active}; Contact : ${body.contact.firstName}, ${body.contact.lastName}, ${body.contact.streetAddr}, ${body.contact.city}, ${body.contact.state}, ${body.contact.zip}, ${body.contact.phone}"/>
             <to uri="direct:insertDB"/>
         </route>
 
@@ -131,11 +125,9 @@
                 <json library="Jackson" unmarshalTypeName="org.globex.Account"/>
             </unmarshal>
             <to uri="cxf:bean:customerWebService"/>
-<!--
-	    <log message=">> WebService Response just the body : ${body[0]}"/>
-            <log loggingLevel="INFO"
-                 message=">> WebService Response : ${body[0].id}, ${body[0].salesContact}, ${body[0].company.geo}, ${body[0].contact.firstName}, ${body[0].contact.lastName} "/>
--->
+
+	          <log message=">> WebService Response just the body : ${body[0]}"/>
+            <log loggingLevel="INFO" message=">> WebService Response : ${body[0].id}, ${body[0].salesContact}, ${body[0].company.geo}, ${body[0].contact.firstName}, ${body[0].contact.lastName} "/>
         </route>
         <!-- Call REST Client -->
         <route>
@@ -157,14 +149,12 @@
             <setHeader headerName="CamelHttpMethod">
                 <constant>POST</constant>
             </setHeader>
-<!--
             <setHeader headerName="CamelHttpPath">
                 <constant>/customerservice/enrich</constant>
             </setHeader>
             <setHeader headerName="CamelCxfRsUsingHttpAPI">
                 <constant>True</constant>
             </setHeader>
--->
             <setHeader headerName="originalBody">
                 <simple>${body}</simple>
             </setHeader>
@@ -172,22 +162,15 @@
             <setHeader headerName="CamelHttpUri">
                 <simple>http://localhost:9191/rest/customerservice/enrich</simple>
             </setHeader>
-	    <log message=">> Before calling restClient : ${body}"/>
+	          <log message=">> Before calling restClient : ${body}"/>
             <to uri="http4://restClient"/>
-<!--
             <inOut uri="cxfrs:bean:customerRestServiceClient"/>
             <bean beanType="org.fuse.usecase.ProcessorBean" method="convertEntityToString"/>
--->
             <convertBodyTo type="String"/>
             <unmarshal>
                 <json library="Jackson" unmarshalTypeName="org.globex.Account"/>
             </unmarshal>
-	    <log message=">> REST Response : ${body}"/>
-<!--
-            <setBody>
-                <simple>${body}</simple>
-            </setBody>
--->
+	          <log message=">> REST Response : ${body}"/>
         </route>
 
         <!-- Insert Records -->
@@ -199,6 +182,6 @@
                          (:#CLIENT_ID,:#SALES_CONTACT,:#COMPANY_NAME,:#COMPANY_GEO,:#COMPANY_ACTIVE,:#CONTACT_FIRST_NAME,:#CONTACT_LAST_NAME,:#CONTACT_ADDRESS,:#CONTACT_CITY,:#CONTACT_STATE,:#CONTACT_ZIP,:#CONTACT_PHONE,:#CREATION_DATE,:#CREATION_USER);"/>
             <log message=">>> Results : ${body}"/>
         </route>
-      <!-- EXCLUDE-END -->
+
     </camelContext>
 </beans>
