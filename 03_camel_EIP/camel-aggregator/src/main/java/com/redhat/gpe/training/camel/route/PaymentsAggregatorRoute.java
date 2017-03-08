@@ -29,6 +29,14 @@ public class PaymentsAggregatorRoute extends RouteBuilder {
         Namespaces ns = new Namespaces("p", "http://training.gpe.redhat.com/payment")
                 .add("xsd", "http://www.w3.org/2001/XMLSchema");
 
-        from(sourceUri).to("ADD_SPLITTER_AND_AGGREGATOR").to(destinationUri);
+        from(sourceUri)
+                .split().xpath("/p:Payments/p:Payment", ns)
+                   .log("\nGot separated payment with this content: \n${body}\nwhich is now being handed over to the aggregator\n")
+                   .convertBodyTo(String.class)
+                   .aggregate(new BodyAppenderAggregator()) // What should be aggregated
+                      .xpath("/p:Payment/p:to", String.class, ns) // How the aggregator should aggregate
+                      .completionTimeout(aggregateTimeoutPeriodInSeconds * 1000) // when it should stop
+                   .log("\nGot aggregated payments with this content: \n${body}\n\nwhich is now being sent to the destination endpoint\n")
+                   .to(destinationUri);
     }
 }

@@ -13,6 +13,15 @@ public class EnricherRoute extends RouteBuilder {
 
 	public void configure() throws Exception {
 
+        from("timer:enrich?period=5s")
+            .setBody().constant("message")
+            .log(">> Before enrichment. My body is : ${body}")
+            .enrich("direct:resource", aggregationStrategy)
+            .log(">> After enrichment. My body is : ${in.body}");
+
+        from("direct:resource")
+           .setExchangePattern(ExchangePattern.InOut)
+           .transform().constant("blah");
 	}
 
 }

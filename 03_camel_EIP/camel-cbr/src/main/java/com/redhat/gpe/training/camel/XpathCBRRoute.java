@@ -3,12 +3,8 @@ package com.redhat.gpe.training.camel;
 import org.apache.camel.Endpoint;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.builder.RouteBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class XpathCBRRoute extends RouteBuilder {
-
-	private static final Logger logger = LoggerFactory.getLogger( XpathCBRRoute.class );
 
     @EndpointInject(ref="sourceDirectoryXml")
     Endpoint sourceUri;
@@ -25,6 +21,7 @@ public class XpathCBRRoute extends RouteBuilder {
 	public void configure() throws Exception {	
 
 		from( sourceUri )
+            .log(">> Processing XML files - ${file:onlyname} <<")
             .convertBodyTo(String.class)
                 .choice()
                 .when(xpath("/pay:Payments/pay:Currency = 'EUR'")
