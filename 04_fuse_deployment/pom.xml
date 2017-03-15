@@ -127,14 +127,14 @@
               </goals>
               <configuration>
                 <username>admin</username>
-                <password>Password1!</password>
+                <password>jbosseap1!</password>
                 <skip>true</skip>
               </configuration>
             </execution>
           </executions>
           <configuration>
             <username>admin</username>
-            <password>password</password>
+            <password>jbosseap1!</password>
             <skip>false</skip>
           </configuration>
         </plugin>
