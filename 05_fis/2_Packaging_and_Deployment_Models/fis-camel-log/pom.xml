@@ -10,10 +10,10 @@
   </parent>
 -->
   <groupId>com.redhat.gpe.training</groupId>
-  <artifactId>fis-camel-log</artifactId>
+  <artifactId>iaw-lab-5-camel-log</artifactId>
   <version>1.0</version>
   <packaging>bundle</packaging>
-  <name>Fabric8 :: Quickstarts :: Karaf :: Camel Log</name>
+  <name>RedHat GPTE :: IAW :: Lab :: 5 :: FIS :: Project :: Camel Log</name>
   <description>A simple Camel route in Karaf container</description>
 
   <properties>

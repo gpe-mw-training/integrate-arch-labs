@@ -12,11 +12,11 @@
   -->
 
   <groupId>com.redhat.gpe.training</groupId>
-  <artifactId>fis-camel-jetty</artifactId>
+  <artifactId>iaw-lab-5-camel-jetty</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>Fabric8 :: Quickstarts :: CDI :: Camel with Jetty as HTTP server</name>
+  <name>RedHat GPTE :: IAW :: Lab :: 5 :: FIS :: Project :: Camel Jetty</name>
   <description>Camel route using CDI in a standalone Java Container using Jetty as HTTP server</description>
 
   <properties>
