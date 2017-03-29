@@ -16,17 +16,18 @@
   ~    limitations under the License.
   -->
 
-<features name="camel-drools-example-${project.version}"
+<features name="camel-drools-lab-${project.version}"
           xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0">
     <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
 
-    <feature name="camel-drools-example" description="Drools-Camel Example" version="${project.version}">
+    <feature name="camel-drools-lab" description="Camel Drools Lab" version="${project.version}">
         <feature version="${camel.version}">camel-spring</feature>
         <feature version="${camel.version}">camel-jaxb</feature>
         <feature version="${camel.version}">camel-xstream</feature>
         <feature version="${camel.version}">camel-cxf</feature>
+        <feature version="${camel.version}">camel-jetty</feature>
         <bundle>mvn:${project.groupId}/${project.artifactId}/${project.version}</bundle>
     </feature>
 
