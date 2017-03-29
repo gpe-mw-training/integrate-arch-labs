@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.redhat.example.drools;
+package com.redhat.gpte.training.drools;
 
 import java.util.Random;
 
