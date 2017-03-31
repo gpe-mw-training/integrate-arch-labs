@@ -14,9 +14,9 @@
  *    limitations under the License.
  */
 
-package com.redhat.gpte.training.drools;
+package com.redhat.gpe.training.drools;
 
-import com.redhat.gpte.training.drools.Person;
+import com.redhat.gpe.training.drools.Person;
 
 rule "Cheers"
 when

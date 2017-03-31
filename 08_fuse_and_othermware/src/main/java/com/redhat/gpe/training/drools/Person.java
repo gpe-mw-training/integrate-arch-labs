@@ -14,23 +14,40 @@
  *    limitations under the License.
  */
 
-package com.redhat.gpte.training.drools;
+package com.redhat.gpe.training.drools;
 
-import java.util.Random;
+public class Person {
+	private String name;
+	private int age;
+	private boolean canDrink = false;
 
-public class PersonHelper {
-	private final Random random = new Random();
-
-	public Person createTestPerson() {
-		Person person = new Person();
-		if (random.nextBoolean()) {
-			person.setName("Old Person");
-			person.setAge(21);
-		} else {
-			person.setName("Young Person");
-			person.setAge(18);
-		}
-		return person;
+	public String getName() {
+		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public boolean isCanDrink() {
+		return canDrink;
+	}
+
+	public void setCanDrink(boolean canDrink) {
+		this.canDrink = canDrink;
+	}
+
+	@Override
+	public String toString() {
+		return "Person{" + "name='" + name + '\'' + ", age=" + age
+				+ ", canDrink=" + canDrink + '}';
+	}
 }
