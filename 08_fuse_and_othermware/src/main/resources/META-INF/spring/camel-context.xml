@@ -38,9 +38,9 @@
 
     <drools:ksession id="ksession1" type="stateless" name="ksession1" kbase="kbase1" node="node1"/>
 
-    <bean id="droolsHelper" class="com.redhat.gpte.training.drools.DroolsCommandHelper"/>
+    <bean id="droolsHelper" class="com.redhat.gpe.training.drools.DroolsCommandHelper"/>
 
-    <bean id="personHelper" class="com.redhat.gpte.training.drools.PersonHelper"/>
+    <bean id="personHelper" class="com.redhat.gpe.training.drools.PersonHelper"/>
 
     <!-- declare the drools bean here to avoid OSGi classpath issues -->
     <bean id="drools" class="org.drools.camel.component.DroolsComponent"/>

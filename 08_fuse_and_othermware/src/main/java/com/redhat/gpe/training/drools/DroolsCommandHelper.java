@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.redhat.gpte.training.drools;
+package com.redhat.gpe.training.drools;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;

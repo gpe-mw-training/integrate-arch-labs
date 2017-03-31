@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.redhat.gpte.training.drools;
+package com.redhat.gpe.training.drools;
 
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
